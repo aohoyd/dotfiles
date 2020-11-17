@@ -68,3 +68,22 @@
  )
 
 (map! :ne "M-/" #'comment-or-uncomment-region)
+;; (map! :ne "C-d" 'mc/mark-next-word-like-this)
+
+;; Add default values to mc
+
+(setq mc/cmds-to-run-for-all '(
+                               evil-forward-char
+                               evil-backward-char
+                               evil-previous-line
+                               evil-digit-argument-or-evil-beginning-of-line
+                               evil-beginning-of-line
+                               evil-end-of-line
+                               evil-yank
+                               evil-paste-after
+                               evil-forward-WORD-begin
+                               evil-forward-WORD-end
+                               evil-backward-WORD-begin
+                               evil-backward-WORD-end
+                               evil-first-non-blank
+                               ))

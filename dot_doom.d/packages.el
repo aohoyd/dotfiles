@@ -50,3 +50,5 @@
 ;(unpin! t)
 
 (package! expand-region)
+(package! multiple-cursors)
+(package! yaml-mode)
