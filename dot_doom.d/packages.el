@@ -52,3 +52,5 @@
 (package! expand-region)
 (package! multiple-cursors)
 (package! yaml-mode)
+(package! puppet-mode)
+(package! go-mode)
