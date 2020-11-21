@@ -56,8 +56,14 @@
 ;; Enable mouse integration
 (require 'mouse)
 (xterm-mouse-mode t)
-(defun track-mouse (e))
 (setq mouse-sel-mode t)
+
+;; Disable tabs indentation
+(setq-default indent-tabs-mode nil)
+
+;; Auto completion
+(require 'auto-complete-config)
+(ac-config-default)
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -67,23 +73,19 @@
  projectile-project-search-path '("~/code")
  )
 
-(map! :ne "M-/" #'comment-or-uncomment-region)
-;; (map! :ne "C-d" 'mc/mark-next-word-like-this)
+;; Define keys
+(global-set-key (kbd "C-i") 'better-jumper-jump-forward)
+(global-set-key (kbd "C-o") 'better-jumper-jump-backward)
 
-;; Add default values to mc
+(global-set-key (kbd "C--") 'undo-fu-only-undo)
+(global-set-key (kbd "M--") 'undo-fu-only-redo)
 
-(setq mc/cmds-to-run-for-all '(
-                               evil-forward-char
-                               evil-backward-char
-                               evil-previous-line
-                               evil-digit-argument-or-evil-beginning-of-line
-                               evil-beginning-of-line
-                               evil-end-of-line
-                               evil-yank
-                               evil-paste-after
-                               evil-forward-WORD-begin
-                               evil-forward-WORD-end
-                               evil-backward-WORD-begin
-                               evil-backward-WORD-end
-                               evil-first-non-blank
-                               ))
+(define-key evil-emacs-state-map (kbd "C-k C-l") 'mc/mark-all-like-this)
+(define-key evil-emacs-state-map (kbd "C-d") 'mc/mark-next-like-this)
+(define-key evil-emacs-state-map (kbd "C-k C-d") 'mc/skip-to-next-like-this)
+(define-key evil-emacs-state-map (kbd "C-M-d") 'mc/mark-previous-like-this)
+(define-key evil-emacs-state-map (kbd "C-M-k C-M-d") 'mc/skip-to-previous-like-this)
+
+(define-key evil-visual-state-map (kbd "M-/") 'comment-or-uncomment-region)
+(define-key evil-normal-state-map (kbd "M-/") '(lambda () (interactive) (comment-line 1)))
+(define-key evil-insert-state-map (kbd "M-/") '(lambda () (interactive) (comment-line 1)))

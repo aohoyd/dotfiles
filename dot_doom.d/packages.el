@@ -51,6 +51,11 @@
 
 (package! expand-region)
 (package! multiple-cursors)
+
+;; Auto completion
+(package! auto-complete)
+
+;; Language modes
 (package! yaml-mode)
 (package! puppet-mode)
 (package! go-mode)
