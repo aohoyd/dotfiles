@@ -62,8 +62,9 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Auto completion
-(require 'auto-complete-config)
-(ac-config-default)
+(setq lsp-gopls-staticcheck t)
+(setq lsp-eldoc-render-all t)
+(setq lsp-gopls-complete-unimported t)
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
