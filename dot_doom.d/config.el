@@ -66,27 +66,28 @@
 (setq lsp-eldoc-render-all t)
 (setq lsp-gopls-complete-unimported t)
 
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
+;; Editor settings
 (setq
- doom-font (font-spec :family "Droid Sans Mono Dotted for Powerline" :size 16)
- projectile-project-search-path '("~/code")
+ doom-font (font-spec :family "JetBrains Mono" :size 16)
+ projectile-project-search-path '("~/code" "~/go/src")
  )
 
 ;; Define keys
+(require 'expand-region)
+(evil-define-key '(normal visual emacs) 'global (kbd "C-S-<right>") 'er/expand-region)
+(evil-define-key '(normal visual emacs) 'global (kbd "C-S-<left>") 'er/contract-region)
+
 (global-set-key (kbd "C-i") 'better-jumper-jump-forward)
 (global-set-key (kbd "C-o") 'better-jumper-jump-backward)
 
 (global-set-key (kbd "C--") 'undo-fu-only-undo)
 (global-set-key (kbd "M--") 'undo-fu-only-redo)
 
-(define-key evil-emacs-state-map (kbd "C-k C-l") 'mc/mark-all-like-this)
-(define-key evil-emacs-state-map (kbd "C-d") 'mc/mark-next-like-this)
-(define-key evil-emacs-state-map (kbd "C-k C-d") 'mc/skip-to-next-like-this)
-(define-key evil-emacs-state-map (kbd "C-M-d") 'mc/mark-previous-like-this)
-(define-key evil-emacs-state-map (kbd "C-M-k C-M-d") 'mc/skip-to-previous-like-this)
+(evil-global-set-key 'emacs (kbd "C-k C-l") 'mc/mark-all-like-this)
+(evil-global-set-key 'emacs (kbd "C-d") 'mc/mark-next-like-this)
+(evil-global-set-key 'emacs (kbd "C-k C-d") 'mc/skip-to-next-like-this)
+(evil-global-set-key 'emacs (kbd "C-M-d") 'mc/mark-previous-like-this)
+(evil-global-set-key 'emacs (kbd "C-M-k C-M-d") 'mc/skip-to-previous-like-this)
 
-(define-key evil-visual-state-map (kbd "M-/") 'comment-or-uncomment-region)
-(define-key evil-normal-state-map (kbd "M-/") '(lambda () (interactive) (comment-line 1)))
-(define-key evil-insert-state-map (kbd "M-/") '(lambda () (interactive) (comment-line 1)))
+(evil-global-set-key 'visual (kbd "M-/") 'comment-or-uncomment-region)
+(evil-define-key '(normal insert emacs) 'global (kbd "M-/") '(lambda () (interactive) (comment-line 1)))
