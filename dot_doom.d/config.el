@@ -89,5 +89,8 @@
 (evil-global-set-key 'emacs (kbd "C-M-d") 'mc/mark-previous-like-this)
 (evil-global-set-key 'emacs (kbd "C-M-k C-M-d") 'mc/skip-to-previous-like-this)
 
+(evil-global-set-key 'visual (kbd "S") 'evil-surround-region)
+(evil-global-set-key 'visual (kbd "D") 'evil-surround-delete)
+
 (evil-global-set-key 'visual (kbd "M-/") 'comment-or-uncomment-region)
 (evil-define-key '(normal insert emacs) 'global (kbd "M-/") '(lambda () (interactive) (comment-line 1)))

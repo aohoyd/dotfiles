@@ -51,6 +51,3 @@
 
 (package! expand-region)
 (package! multiple-cursors)
-
-;; Language modes
-(package! puppet-mode)
