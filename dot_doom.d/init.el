@@ -14,6 +14,8 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+(setq exec-path (append exec-path '("/usr/local/go/bin" "/Users/aolshanskii/go/bin")))
+
 (doom! :input
        ;;chinese
        ;;japanese
@@ -88,10 +90,10 @@
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
-       ;;ansible
+       ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
-       ;;docker
+       docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
@@ -99,13 +101,13 @@
        lookup              ; navigate your code and its documentation
        lsp
        magit             ; a git porcelain for Emacs
-       ;;make              ; run make tasks from Emacs
+       make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
-       ;;terraform         ; infrastructure as code
+       terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
 

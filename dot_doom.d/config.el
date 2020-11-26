@@ -62,9 +62,9 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Auto completion
-(setq lsp-gopls-staticcheck t)
-(setq lsp-eldoc-render-all t)
-(setq lsp-gopls-complete-unimported t)
+(setq lsp-gopls-staticcheck t
+      lsp-eldoc-render-all t
+      lsp-gopls-complete-unimported t)
 
 ;; Editor settings
 (setq
@@ -73,24 +73,28 @@
  )
 
 ;; Define keys
-(require 'expand-region)
-(evil-define-key '(normal visual emacs) 'global (kbd "C-S-<right>") 'er/expand-region)
-(evil-define-key '(normal visual emacs) 'global (kbd "C-S-<left>") 'er/contract-region)
+(map! "C-i" 'better-jumper-jump-forward
+      "C-o" 'better-jumper-jump-backward
 
-(global-set-key (kbd "C-i") 'better-jumper-jump-forward)
-(global-set-key (kbd "C-o") 'better-jumper-jump-backward)
+      "C--" 'undo-fu-only-undo
+      "M--" 'undo-fu-only-redo
 
-(global-set-key (kbd "C--") 'undo-fu-only-undo)
-(global-set-key (kbd "M--") 'undo-fu-only-redo)
+      :nve "C-S-<right>" 'er/expand-region
+      :nve "C-S-<left>" 'er/contract-region
 
-(evil-global-set-key 'emacs (kbd "C-k C-l") 'mc/mark-all-like-this)
-(evil-global-set-key 'emacs (kbd "C-d") 'mc/mark-next-like-this)
-(evil-global-set-key 'emacs (kbd "C-k C-d") 'mc/skip-to-next-like-this)
-(evil-global-set-key 'emacs (kbd "C-M-d") 'mc/mark-previous-like-this)
-(evil-global-set-key 'emacs (kbd "C-M-k C-M-d") 'mc/skip-to-previous-like-this)
+      :e "C-k C-l" 'mc/mark-all-like-this
+      :e "C-d" 'mc/mark-next-like-this
+      :e "C-k C-d" 'mc/skip-to-next-like-this
+      :e "C-M-d" 'mc/mark-previous-like-this
+      :e "C-M-k C-M-d" 'mc/skip-to-previous-like-this
 
-(evil-global-set-key 'visual (kbd "S") 'evil-surround-region)
-(evil-global-set-key 'visual (kbd "D") 'evil-surround-delete)
+      :v "S" 'evil-surround-region
+      :v "D" 'evil-surround-delete
 
-(evil-global-set-key 'visual (kbd "M-/") 'comment-or-uncomment-region)
-(evil-define-key '(normal insert emacs) 'global (kbd "M-/") '(lambda () (interactive) (comment-line 1)))
+      :v "M-/" 'comment-or-uncomment-region
+      :nie "M-/" '(lambda () (interactive) (comment-line 1)))
+
+(after! evil-magit
+  (evil-define-key 'normal magit-mode-map
+    "gw" 'magit-diff-visit-file-other-window
+    "gW" 'magit-diff-visit-file-other-frame))
