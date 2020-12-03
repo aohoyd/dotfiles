@@ -1,7 +1,4 @@
 #!/usr/bin/env zsh
 
-function kube-alias() {
-    . ~/.config/custom/kube-alias.zsh
-}
-
-alias e=/usr/local/bin/emacs
+source ~/.config/custom/common-alias.zsh
+source ~/.config/custom/vars.zsh
