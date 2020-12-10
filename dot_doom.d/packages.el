@@ -51,3 +51,5 @@
 
 (package! expand-region)
 (package! multiple-cursors)
+
+(package! puppet-mode)

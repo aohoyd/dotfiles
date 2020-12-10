@@ -94,6 +94,10 @@
       :v "M-/" 'comment-or-uncomment-region
       :nie "M-/" '(lambda () (interactive) (comment-line 1)))
 
+(map! :leader
+      (:prefix "g"
+       :desc "Magit diff range" :n "d" 'magit-diff-range))
+
 (after! evil-magit
   (evil-define-key 'normal magit-mode-map
     "gw" 'magit-diff-visit-file-other-window
