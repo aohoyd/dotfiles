@@ -72,6 +72,14 @@
  projectile-project-search-path '("~/code" "~/go/src")
  )
 
+;; Org mode configuration
+(add-to-list 'load-path "/Users/aolshanskii/.emacs.d/.local/straight/repos/org-mode/contrib/lisp")
+(after! org
+  (setq org-superstar-headline-bullets-list '("⠪")))
+
+(setq display-line-numbers-type 'relative)
+
+
 ;; Define keys
 (map! "C-i" 'better-jumper-jump-forward
       "C-o" 'better-jumper-jump-backward
