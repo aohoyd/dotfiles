@@ -9,7 +9,7 @@
  projectile-project-search-path '("~/code" "~/go/src")
  )
 
-(setq doom-theme 'doom-snazzy)
+(setq doom-theme 'doom-horizon)
 
 (setq display-line-numbers-type 'relative)
 

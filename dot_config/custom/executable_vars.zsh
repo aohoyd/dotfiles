@@ -6,3 +6,5 @@ export EDITOR=/usr/local/bin/emacs
 export LC_ALL=en_US.UTF-8
 
 export PATH=$PATH:~/go/bin
+
+export NNN_PLUG='f:finder;o:fzopen;c:fzcd'
