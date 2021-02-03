@@ -1,24 +1,21 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (setq user-full-name "Al Ol"
-      user-mail-address "aovlllo@hey.com")
+      user-mail-address "aovlllo@hey.com"
+      ;; Editor settings
+      doom-font (font-spec :family "JetBrains Mono" :size 16)
+      projectile-project-search-path '("~/code" "~/go/src")
+      doom-theme 'doom-horizon
+      display-line-numbers-type 'relative)
 
-;; Editor settings
-(setq
- doom-font (font-spec :family "JetBrains Mono" :size 16)
- projectile-project-search-path '("~/code" "~/go/src")
- )
-
-(setq doom-theme 'doom-horizon)
-
-(setq display-line-numbers-type 'relative)
+(setq-default indent-tabs-mode nil
+              major-mode 'org-roam-mode)
 
 ;; Enable mouse integration
 (require 'mouse)
 (xterm-mouse-mode t)
 (setq mouse-sel-mode t)
 
-(setq-default indent-tabs-mode nil)
 
 ;; Auto completion
 (setq lsp-gopls-staticcheck t
@@ -26,10 +23,15 @@
       lsp-gopls-complete-unimported t)
 
 ;; Org mode configuration
-(setq org-directory "~/org/")
 (add-to-list 'load-path "/Users/aolshanskii/.emacs.d/.local/straight/repos/org-mode/contrib/lisp")
+
 (after! org
-  (setq org-superstar-headline-bullets-list '("⠪")))
+  (setq org-superstar-headline-bullets-list '("⠪")
+        org-directory "~/org-roam/"
+        org-agenda-files '("~/org-roam/")))
+
+(after! org-roam
+  (setq org-roam-directory "~/org-roam/"))
 
 ;; Define keys
 (map! "C-i" 'better-jumper-jump-forward
@@ -55,7 +57,9 @@
 
 (map! :leader
       (:prefix "g"
-       :desc "Magit diff range" :n "d" 'magit-diff-range))
+       :desc "Magit diff range" :n "d" 'magit-diff-range)
+      (:prefix "n"
+       :desc "Find file in org-roam" :n "f" 'org-roam-find-file-immediate))
 
 (after! evil-magit
   (evil-define-key 'normal magit-mode-map
