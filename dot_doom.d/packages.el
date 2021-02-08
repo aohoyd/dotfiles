@@ -53,3 +53,7 @@
 (package! multiple-cursors)
 
 (package! puppet-mode)
+
+(package! md-roam
+  :recipe (:host github
+           :repo "nobiot/md-roam"))

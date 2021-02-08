@@ -5,8 +5,10 @@
       ;; Editor settings
       doom-font (font-spec :family "JetBrains Mono" :size 16)
       projectile-project-search-path '("~/code" "~/go/src")
-      doom-theme 'doom-horizon
-      display-line-numbers-type 'relative)
+      ;; doom-theme 'doom-old-hope
+      doom-theme 'doom-monokai-spectrum)
+      ;; display-line-numbers-type 'relative)
+
 
 (setq-default indent-tabs-mode nil
               major-mode 'org-roam-mode)
@@ -23,6 +25,13 @@
       lsp-gopls-complete-unimported t)
 
 ;; Org mode configuration
+(use-package! md-roam ; load immediately, before org-roam
+  :config
+  (setq md-roam-file-extension-single "md"
+        md-roam-use-org-extract-ref nil
+        md-roam-use-org-file-links nil
+        md-roam-use-markdown-file-links t))
+
 (add-to-list 'load-path "/Users/aolshanskii/.emacs.d/.local/straight/repos/org-mode/contrib/lisp")
 
 (after! org
@@ -32,6 +41,12 @@
 
 (after! org-roam
   (setq org-roam-directory "~/org-roam/"))
+
+(after! md-roam
+  (setq org-roam-file-extensions '("org" "md")
+        org-roam-title-sources '((mdtitle title mdheadline headline) (mdalias alias))
+        org-roam-tag-sources '(md-frontmatter)
+        org-roam-tag-sources '(prop md-frontmatter)))
 
 ;; Define keys
 (map! "C-i" 'better-jumper-jump-forward
