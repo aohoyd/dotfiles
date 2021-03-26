@@ -5,3 +5,4 @@ function kube-alias() {
 }
 
 alias e=/usr/local/bin/emacs
+alias tmux-sess=~/.config/custom/tmux-session.zsh
