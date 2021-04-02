@@ -6,8 +6,8 @@
       doom-font (font-spec :family "JetBrains Mono" :size 16)
       projectile-project-search-path '("~/code" "~/go/src")
       ;; doom-theme 'doom-old-hope
-      doom-theme 'doom-monokai-spectrum)
-      ;; display-line-numbers-type 'relative)
+      doom-theme 'doom-monokai-spectrum
+      display-line-numbers-type 'relative)
 
 
 (setq-default indent-tabs-mode nil
