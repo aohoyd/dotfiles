@@ -334,6 +334,8 @@ set -g prefix C-a
 bind C-a send-prefix
 bind s setw synchronize-panes 
 
+set -g default-shell /usr/local/bin/fish
+
 # move status line to top
 #set -g status-position top
 

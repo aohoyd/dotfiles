@@ -12,6 +12,11 @@ function atttmux
     end
 end
 
+abbr -a slab ssh util
+abbr -a spro ssh util001.scl.five9.com
+abbr -a xlab xxh util
+abbr -a xpro xxh util001.scl.five9.com
+
 set TERM xterm-256color
 set EDITOR /usr/local/bin/emacs
 
