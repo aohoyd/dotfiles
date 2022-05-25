@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 source (brew --prefix asdf)/asdf.fish
+source (dirname (status --current-filename))/kube-vars.fish
 source (dirname (status --current-filename))/kube-alias.fish
 
 function atttmux
@@ -19,7 +20,7 @@ set DOCKER_HOST unix:///Users/a.v.olshanskiy/.lima/docker/sock/docker.sock
 
 set LC_ALL en_US.UTF-8
 
-set PATH $PATH ~/go/bin
+set PATH $PATH ~/go/bin ~/.krew/bin
 
 set NNN_PLUG 'f:finder;o:fzopen;c:fzcd'
 

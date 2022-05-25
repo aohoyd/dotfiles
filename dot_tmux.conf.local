@@ -319,7 +319,7 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-#set -g mouse on
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -363,3 +363,10 @@ set -g default-shell /usr/local/bin/fish
 #
 # "$@"
 # # /!\ do not remove the previous line
+
+bind-key m command-prompt -p "join pane from:" "join-pane -s '%%'"
+bind-key M command-prompt -p "send pane to:" "join-pane -t '%%'"
+bind-key -T copy-mode-vi 'y' send -X copy-pipe "kitty +kitten clipboard"
+
+# -- Plugins -------------------------------------------------------------------
+run-shell ~/.tmux/plugins/extrakto/extrakto.tmux

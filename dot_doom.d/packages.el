@@ -50,10 +50,5 @@
 ;(unpin! t)
 
 (package! expand-region)
-(package! multiple-cursors)
-
-(package! puppet-mode)
-
-(package! md-roam
-  :recipe (:host github
-           :repo "nobiot/md-roam"))
+(package! jsonnet-mode)
+(package! org-modern)
