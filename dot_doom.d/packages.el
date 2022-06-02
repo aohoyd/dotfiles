@@ -52,3 +52,4 @@
 (package! expand-region)
 (package! jsonnet-mode)
 (package! org-modern)
+(package! valign)

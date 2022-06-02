@@ -14,13 +14,15 @@ function atttmux
     end
 end
 
-set TERM xterm-256color
-set EDITOR /usr/local/bin/emacs
-set DOCKER_HOST unix:///Users/a.v.olshanskiy/.lima/docker/sock/docker.sock
+set -x TERM xterm-256color
+set -x EDITOR /usr/local/bin/emacsclient -t
+set -x VISUAL /usr/local/bin/emacsclient -c
+set -x DOCKER_HOST 'unix:///Users/a.v.olshanskiy/.local/share/containers/podman/machine/podman-machine-default/podman.sock'
 
-set LC_ALL en_US.UTF-8
+set -x LC_ALL en_US.UTF-8
 
-set PATH $PATH ~/go/bin ~/.krew/bin
+set -x PATH $PATH ~/go/bin ~/.krew/bin
 
-set NNN_PLUG 'f:finder;o:fzopen;c:fzcd'
+set -x NNN_PLUG 'f:finder;o:fzopen;c:fzcd'
 
+abbr -a -g e emacsclient -t
