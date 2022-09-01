@@ -21,8 +21,12 @@ set -x DOCKER_HOST 'unix:///Users/a.v.olshanskiy/.local/share/containers/podman/
 
 set -x LC_ALL en_US.UTF-8
 
-set -x PATH $PATH ~/go/bin ~/.krew/bin
+set -x PATH $PATH ~/go/bin ~/.krew/bin "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 
 set -x NNN_PLUG 'f:finder;o:fzopen;c:fzcd'
 
 abbr -a -g e emacsclient -t
+abbr -a -g watch viddy
+
+alias cat=bat
+alias ls=exa
