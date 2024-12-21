@@ -1,0 +1,50 @@
+[alias]
+	amend = "stack amend"
+	next = "stack next"
+	prev = "stack previous"
+	reword = "stack reword"
+	run = "stack run"
+	sync = "stack sync"
+
+[core]
+	editor = "$EDITOR"
+
+[diff]
+	external = "/opt/homebrew/bin/difft --color auto --background light --display inline"
+
+[filter "lfs"]
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
+	required = true
+	smudge = "git-lfs smudge -- %f"
+
+[gitget]
+	root = "/Users/{{.chezmoi.username}}/Git"
+
+[merge]
+	tool = "smerge"
+
+[mergetool "smerge"]
+	cmd = "smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\""
+	trustExitCode = true
+
+[stack]
+	protected-branch = "main"
+
+[url "ssh://git@{{.chezmoi.config.data.workGit}}"]
+	insteadOf = "https://{{.chezmoi.config.data.workGit}}"
+
+[user]
+	name = "{{.chezmoi.config.data.name}}"
+
+[includeIf "gitdir:~/Git/github.com/"]
+	path = "~/.config/git/gh_gitconfig"
+
+[includeIf "gitdir:{{.chezmoi.commandDir}}/"]
+	path = "~/.config/git/gh_gitconfig"
+
+[includeIf "gitdir:~/.config/"]
+	path = "~/.config/git/gh_gitconfig"
+
+[includeIf "gitdir:~/Git/{{.chezmoi.config.data.workGit}}/"]
+	path = "~/.config/git/work_gitconfig"

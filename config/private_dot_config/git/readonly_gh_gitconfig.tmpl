@@ -1,0 +1,13 @@
+[commit]
+	gpgSign = true
+
+[credential]
+	helper = "store"
+	useHttpPath = true
+
+[stack]
+	gpgSign = true
+
+[user]
+	email = {{.chezmoi.config.data.ghEmail | quote}}
+	signingkey = {{.chezmoi.config.data.ghSignKey | quote}}

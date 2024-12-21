@@ -1,0 +1,15 @@
+[commit]
+	gpgSign = true
+
+[gpg]
+	format = "x509"
+
+[gpg "x509"]
+	program = "smimesign"
+
+[stack]
+	gpgSign = true
+
+[user]
+	email = {{.chezmoi.config.data.workEmail | quote}}
+	signingkey = {{.chezmoi.config.data.workSignKey | quote}}
