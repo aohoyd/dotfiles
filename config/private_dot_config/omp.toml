@@ -1,0 +1,145 @@
+version = 3
+final_space = true
+
+[palette]
+closer = 'p:os'
+os = '#ACB0BE'
+rosewater = '#F5E0DC'
+flamingo = '#F2CDCD'
+pink = '#F5C2E7'
+mauve = '#CBA6F7'
+red = '#F38BA8'
+maroon = '#EBA0AC'
+peach = '#FAB387'
+yellow = '#F9E2AF'
+green = '#A6E3A1'
+teal = '#94E2D5'
+sky = '#89DCEB'
+sapphire = '#74C7EC'
+blue = '#89B4FA'
+lavender = '#B4BEFE'
+text = '#CDD6F4'
+subtext1 = '#BAC2DE'
+subtext0 = '#A6ADC8'
+overlay2 = '#9399B2'
+overlay1 = '#7F849C'
+overlay0 = '#6C7086'
+surface2 = '#585B70'
+surface1 = '#45475A'
+surface0 = '#313244'
+base = '#1E1E2E'
+mantle = '#181825'
+crust = '#11111B'
+
+[upgrade]
+source = 'cdn'
+interval = '168h'
+auto = false
+notice = false
+
+[transient_prompt]
+template = '❯ '
+background = 'transparent'
+foreground = 'p:green'
+foreground_templates = ['{{ if gt .Code 0 }}p:red{{ end }}']
+
+[secondary_prompt]
+template = '❯❯ '
+background = 'transparent'
+foreground = 'p:yellow'
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+template = '<b>{{ .Path }}</b> '
+foreground = 'p:pink'
+type = 'path'
+style = 'plain'
+
+[blocks.segments.properties]
+folder_icon = '…'
+home_icon = '~'
+hide_root_location = true
+max_depth = 2
+style = 'agnoster_short'
+
+[blocks.segments.properties.mapped_locations]
+"~/Git/gitlab.ptsecurity.com/ptcs" = "…/ptcs"
+
+[[blocks.segments]]
+template = '{{ .HEAD }}<b><red>{{if or .Working.Changed .Staging.Changed }}!{{ end }}{{if .Working.Untracked }}?{{end}}{{if .Ahead }}⇡{{end}}{{if .Behind }}⇣{{end}}</></>'
+foreground = 'p:lavender'
+type = 'git'
+style = 'plain'
+
+[blocks.segments.properties]
+branch_icon = ' '
+cherry_pick_icon = ' '
+commit_icon = ' '
+fetch_status = true
+fetch_upstream_icon = false
+merge_icon = ' '
+no_commits_icon = ' '
+rebase_icon = ' '
+revert_icon = ' '
+tag_icon = ' '
+
+[[blocks.segments]]
+type = 'go'
+style = 'plain'
+foreground = 'p:teal'
+template = '  v{{.Full}}'
+
+[[blocks.segments]]
+type = 'rust'
+style = 'plain'
+foreground = 'p:peach'
+template = '  v{{.Full}}'
+
+[[blocks.segments]]
+type = 'python'
+style = 'plain'
+foreground = 'p:green'
+fetch_virtual_env = false
+display_mode = 'context'
+extensions = ['*.py', 'pyproject.toml']
+template = '  v{{.Full}}'
+
+[[blocks.segments]]
+type = 'lua'
+style = 'plain'
+foreground = 'p:sapphire'
+template = ' 󰢱 v{{.Full}}'
+
+[[blocks.segments]]
+type = 'zig'
+style = 'plain'
+foreground = 'p:yellow'
+template = '  v{{.Full}}'
+
+[[blocks]]
+type = 'rprompt'
+alignment = 'right'
+newline = false
+overflow = 'hide'
+
+[[blocks.segments]]
+type = 'kubectl'
+style = 'plain'
+foreground = 'p:blue'
+template = '<b>⎈ {{.Context}}{{if .Namespace}} {{.Namespace}}{{end}}</b>'
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+template = '❯'
+foreground = 'p:green'
+foreground_templates = ['{{ if gt .Code 0 }}p:red{{ end }}']
+type = 'text'
+style = 'plain'

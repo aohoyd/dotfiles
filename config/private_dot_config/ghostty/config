@@ -1,9 +1,15 @@
 theme = Builtin Pastel Dark
 macos-option-as-alt = true
 font-size = 17
-font-family = Mono Lisa
+font-family = Cascadia Code NF
 
 quick-terminal-screen = mouse
+quick-terminal-autohide = false
+
+mouse-hide-while-typing = true
+cursor-style-blink = false
+cursor-style = block
+shell-integration-features = no-cursor
 
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
@@ -19,5 +25,8 @@ keybind = super+l=goto_split:right
 keybind = super+h=goto_split:left
 
 unfocused-split-opacity = 0.3
-background-opacity = 0.8
-background-blur-radius = 15
+background-opacity = 0.95
+background-blur-radius = 25
+
+window-padding-x = 4,4
+window-padding-y = 4,4

@@ -20,6 +20,7 @@ status is-interactive; and begin
     abbr --add -- gs 'git stack'
     abbr --add -- gsy 'git sync'
     abbr --add -- gt 'git tag'
+    abbr --add -- gi gitui
     abbr --add -- k kubectl
     abbr --add -- ka 'kubectl apply --recursive -f'
     abbr --add -- kd 'kubectl describe'
@@ -119,11 +120,16 @@ status is-interactive; and begin
     fish_add_path /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/coreutils/libexec/gnubin ~/go/bin ~/.krew/bin
 
     # run starship
-    eval (/opt/homebrew/bin/starship init fish)
+    # eval (/opt/homebrew/bin/starship init fish)
+    /opt/homebrew/bin/oh-my-posh init fish --config ~/.config/omp.toml | source
 
     set -x STARSHIP_CONFIG ~/.config/starship.toml
     if test $TERM_PROGRAM = WarpTerminal
         set -x STARSHIP_CONFIG ~/.config/starship-warp.toml
+    end
+
+    function rerender_on_dir_change --on-variable PWD
+        omp_repaint_prompt
     end
 
     function __term_setup --on-event fish_prompt -d "Setup term integration"

@@ -21,12 +21,14 @@
 [gitget]
 	root = "/Users/{{.chezmoi.username}}/Git"
 
-[merge]
-	tool = "smerge"
-
 [mergetool "smerge"]
+	name = smerge
 	cmd = "smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\""
 	trustExitCode = true
+
+[merge "mergiraf"]
+	name = mergiraf
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 
 [stack]
 	protected-branch = "main"

@@ -1,8 +1,10 @@
 # Shell Environments and Customization
+brew "bash"
 brew "fish"          # User-friendly command line shell
 brew "fisher"        # Plugin manager for Fish shell
 brew "starship"      # Cross-shell prompt
 brew "nushell"       # Modern shell written in Rust
+brew "oh-my-posh"
 
 # Text Editors and IDE Tools
 brew "neovim"        # Modern vim text editor
@@ -21,6 +23,7 @@ brew "yq"            # YAML processor
 brew "fx"            # JSON viewer and processor
 brew "choose"        # Alternative to cut/awk
 brew "hck"           # Drop-in replacement for cut
+brew "fd"
 
 # HTTP and Network Tools
 brew "curl"          # Command line tool for transferring data
@@ -53,6 +56,8 @@ brew "git-lfs"       # Git extension for large files
 brew "glab"          # GitLab CLI tool
 brew "gh"            # GitHub CLI tool
 brew "lazygit"       # Simple terminal UI for git
+brew "mergiraf"
+brew "smimesign"
 
 # Programming Languages and SDKs
 brew "go"            # Go programming language
@@ -62,6 +67,7 @@ brew "python@3.12"   # Python programming language
 # Container and Kubernetes Tools
 brew "docker"                     # Docker CLI client
 brew "docker-credential-helper"   # Docker credential helpers
+brew "skopeo"
 brew "kind"                       # Kubernetes in Docker
 brew "kubectl"                    # Kubernetes command-line tool
 #brew "minikube"                   # Local Kubernetes cluster
