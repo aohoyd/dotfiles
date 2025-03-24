@@ -101,8 +101,10 @@ status is-interactive; and begin
     set -x VISUAL zed
     set -x LC_ALL en_US.UTF-8
     set -x K9S_CONFIG_DIR ~/.config/k9s
+    set -x BAT_STYLE changes,rule,header,snip
 
     set -x FZF_DEFAULT_OPTS \
+        "--bind=tab:down,shift-tab:up,right:toggle+down,left:toggle+up" \
         "--border=none" \
         "--color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#262626" \
         "--color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00" \
@@ -116,6 +118,7 @@ status is-interactive; and begin
         "--scrollbar=\"│\""
     set -x FZF_FIND_FILE_OPTS \
         "--preview \"bat -n --color=always {}\""
+    set -x fifc_custom_fzf_opts "+e" "--height=30%" "--preview-window=right,75%"
 
     fish_add_path /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/coreutils/libexec/gnubin ~/go/bin ~/.krew/bin
 

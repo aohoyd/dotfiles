@@ -33,16 +33,13 @@
 [stack]
 	protected-branch = "main"
 
-[url "ssh://git@{{.chezmoi.config.data.workGit}}"]
-	insteadOf = "https://{{.chezmoi.config.data.workGit}}"
-
 [user]
 	name = "{{.chezmoi.config.data.name}}"
 
 [includeIf "gitdir:~/Git/github.com/"]
 	path = "~/.config/git/gh_gitconfig"
 
-[includeIf "gitdir:{{.chezmoi.commandDir}}/"]
+[includeIf "gitdir:{{.chezmoi.workingTree}}/"]
 	path = "~/.config/git/gh_gitconfig"
 
 [includeIf "gitdir:~/.config/"]

@@ -1,6 +1,6 @@
 theme = Builtin Pastel Dark
 macos-option-as-alt = true
-font-size = 17
+font-size = 18
 font-family = Cascadia Code NF
 
 quick-terminal-screen = mouse
