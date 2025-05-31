@@ -1,7 +1,10 @@
 theme = Builtin Pastel Dark
 macos-option-as-alt = true
 font-size = 18
-font-family = Cascadia Code NF
+#font-family = Cascadia Code NF
+#font-family = Berkeley Mono Condensed
+#font-family = Berkeley Mono SemiCondensed
+font-family = Berkeley Mono Medium SemiCondensed NF
 
 quick-terminal-screen = mouse
 quick-terminal-autohide = false
@@ -23,6 +26,11 @@ keybind = super+k=goto_split:top
 keybind = super+j=goto_split:bottom
 keybind = super+l=goto_split:right
 keybind = super+h=goto_split:left
+keybind = super+up=goto_split:top
+keybind = super+down=goto_split:bottom
+keybind = super+left=goto_split:right
+
+keybind = super+right=goto_split:left
 
 unfocused-split-opacity = 0.3
 background-opacity = 0.95

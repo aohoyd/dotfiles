@@ -1,3 +1,7 @@
 machine {{.chezmoi.config.data.workGit}}
 login {{.chezmoi.config.data.workEmail | splitList "@" | first}}
 password {{.chezmoi.config.data.workGitToken}}
+
+machine {{.chezmoi.config.data.workArtifactory}}
+login {{.chezmoi.config.data.workEmail | splitList "@" | first}}
+password {{.chezmoi.config.data.workArtifactoryToken}}
