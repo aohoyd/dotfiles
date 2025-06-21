@@ -1,9 +1,7 @@
 jorgebucaran/fisher
 jethrokuan/fzf
 jhillyerd/plugin-git
-oh-my-fish/plugin-pj
 jethrokuan/z
-evanlucas/fish-kubectl-completions
-aluxian/fish-kube-prompt
 edc/bass
 gazorby/fifc
+evanlucas/fish-kubectl-completions

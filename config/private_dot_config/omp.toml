@@ -70,7 +70,8 @@ style = 'agnoster_short'
 "~/Git/gitlab.ptsecurity.com/ptcs" = "…/ptcs"
 
 [[blocks.segments]]
-template = '{{ .HEAD }}<b><red>{{if or .Working.Changed .Staging.Changed }}!{{ end }}{{if .Working.Untracked }}?{{end}}{{if .Ahead }}⇡{{end}}{{if .Behind }}⇣{{end}}</></>'
+# template = '{{.HEAD}}<b><red>{{if or .Working.Changed .Staging.Changed }}!{{ end }}{{if .Working.Untracked }}?{{end}}{{if .Ahead }}⇡{{end}}{{if .Behind }}⇣{{end}}</></> '
+template = '{{if .Detached}} {{substr 0 7 .Commit.Sha}}{{else}}{{.HEAD}}{{end}}{{if .Commit.Refs.Tags}}  {{.Commit.Refs.Tags | first}}{{end}}<b><red>{{if or .Working.Changed .Staging.Changed }}!{{ end }}{{if .Working.Untracked }}?{{end}}{{if .Ahead }}⇡{{end}}{{if .Behind }}⇣{{end}}</></> '
 foreground = 'p:lavender'
 type = 'git'
 style = 'plain'
@@ -87,17 +88,36 @@ rebase_icon = ' '
 revert_icon = ' '
 tag_icon = ' '
 
+# [[blocks.segments]]
+# template = ' {{.ChangeID}}<b><red>{{if .Working.Changed}} {{ .Working.String }}{{ end }}</></> '
+# foreground = 'p:blue'
+# type = 'jujutsu'
+# style = 'plain'
+
+# [blocks.segments.properties]
+# fetch_status = true
+
+[[blocks.segments]]
+type = 'command'
+style = 'plain'
+foreground = 'p:blue'
+template = '󱗆 {{.Output}} '
+
+[blocks.segments.properties]
+shell = 'bash'
+command = 'starship-jj --ignore-working-copy --debug starship prompt'
+
 [[blocks.segments]]
 type = 'go'
 style = 'plain'
 foreground = 'p:teal'
-template = '  v{{.Full}}'
+template = ' v{{.Full}} '
 
 [[blocks.segments]]
 type = 'rust'
 style = 'plain'
 foreground = 'p:peach'
-template = '  v{{.Full}}'
+template = ' v{{.Full}} '
 
 [[blocks.segments]]
 type = 'python'
@@ -106,19 +126,19 @@ foreground = 'p:green'
 fetch_virtual_env = false
 display_mode = 'context'
 extensions = ['*.py', 'pyproject.toml']
-template = '  v{{.Full}}'
+template = ' v{{.Full}} '
 
 [[blocks.segments]]
 type = 'lua'
 style = 'plain'
 foreground = 'p:sapphire'
-template = ' 󰢱 v{{.Full}}'
+template = '󰢱 v{{.Full}} '
 
 [[blocks.segments]]
 type = 'zig'
 style = 'plain'
 foreground = 'p:yellow'
-template = '  v{{.Full}}'
+template = ' v{{.Full}} '
 
 [[blocks]]
 type = 'rprompt'
@@ -130,7 +150,7 @@ overflow = 'hide'
 type = 'kubectl'
 style = 'plain'
 foreground = 'p:blue'
-template = '<b>⎈ {{.Context}}{{if .Namespace}} {{.Namespace}}{{end}}</b>'
+template = '<b>⎈ {{.Context}}{{if .Namespace}} {{.Namespace}}{{end}}</b> '
 
 [[blocks]]
 type = 'prompt'

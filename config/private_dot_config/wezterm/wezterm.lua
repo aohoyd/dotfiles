@@ -6,7 +6,8 @@ local action_callback = wezterm.action_callback
 
 local config = wezterm.config_builder()
 
-local theme = "Cloud (terminal.sexy)"
+local theme = "Kanagawa (Gogh)"
+-- local theme = "Cloud (terminal.sexy)"
 -- local theme = "Hybrid (terminal.sexy)"
 
 config.check_for_updates = false
@@ -17,7 +18,7 @@ config.inactive_pane_hsb = {
 	brightness = 1.0,
 }
 
-config.font = wezterm.font("Berkeley Mono NF", {stretch="SemiCondensed"})
+config.font = wezterm.font("Berkeley Mono NF", {stretch="SemiCondensed", weight="Medium"})
 config.font_size = 19.0
 config.freetype_load_flags = "NO_HINTING"
 
@@ -27,7 +28,7 @@ config.hide_tab_bar_if_only_one_tab = false
 config.window_decorations = "RESIZE"
 config.scrollback_lines = 10000
 
-config.enable_kitty_keyboard = true
+config.enable_kitty_keyboard = false
 config.send_composed_key_when_right_alt_is_pressed = false
 config.disable_default_key_bindings = true
 config.tab_bar_at_bottom = false
@@ -61,6 +62,8 @@ tabline.setup({
 		tabline_b = {},
 		tabline_x = {},
 		tabline_y = { "datetime" },
+
+		tab_inactive = { "index", { "parent", padding = 0 }, "/", { "cwd", padding = { left = 0, right = 1 } } },
 	},
 })
 
@@ -229,6 +232,26 @@ config.keys = {
 	{ key = "UpArrow", mods = "CMD|ALT", action = action_callback(select_block_backward) },
 	{ key = "DownArrow", mods = "CMD|ALT", action = action_callback(select_block_forward) },
 }
+
+local function trim_enter_from_selection(window, pane)
+  local selection_text = window:get_selection_text_for_pane(pane)
+  if selection_text then
+    -- Trim trailing newlines and spaces
+    local trimmed_text = selection_text:gsub("⏎%s+$", "")
+    window:copy_to_clipboard(trimmed_text)
+  end
+	window:perform_action(
+		action.Multiple({
+			action.ScrollToBottom,
+			action.CopyMode("Close"),
+		}),
+		pane
+	)
+end
+
+local copy_mode = wezterm.gui.default_key_tables().copy_mode
+table.insert(copy_mode, { key = 'y', mods = 'NONE', action = action_callback(trim_enter_from_selection) })
+config.key_tables = { copy_mode = copy_mode }
 
 return config
 

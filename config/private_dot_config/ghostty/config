@@ -1,4 +1,4 @@
-theme = Builtin Pastel Dark
+theme = kanagawabones
 macos-option-as-alt = true
 font-size = 18
 #font-family = Cascadia Code NF
@@ -21,7 +21,7 @@ macos-option-as-alt = true
 keybind = super+z=toggle_split_zoom
 keybind = super+equal=new_split:right
 keybind = super+minus=new_split:down
-keybind = global:cmd+`=toggle_quick_terminal
+keybind = global:cmd+ctrl+alt+q=toggle_quick_terminal
 keybind = super+k=goto_split:top
 keybind = super+j=goto_split:bottom
 keybind = super+l=goto_split:right

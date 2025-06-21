@@ -3,6 +3,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_status\
+${custom.jj}\
 $c\
 $golang\
 $helm\
@@ -13,7 +14,6 @@ $rust\
 $terraform\
 $zig\
 $nix_shell\
-$kubernetes\
 $cmd_duration\
 $line_break\
 $jobs\
@@ -21,11 +21,40 @@ $status\
 $shell\
 $character
 """
-#right_format = "$kubernetes"
-palette = "tokyo_night"
+right_format = "$kubernetes"
+palette = "catpuccin"
 add_newline = true
 command_timeout = 500
 scan_timeout = 30
+
+[palettes.catpuccin]
+os = '#ACB0BE'
+rosewater = '#F5E0DC'
+flamingo = '#F2CDCD'
+pink = '#F5C2E7'
+mauve = '#CBA6F7'
+red = '#F38BA8'
+maroon = '#EBA0AC'
+peach = '#FAB387'
+yellow = '#F9E2AF'
+green = '#A6E3A1'
+teal = '#94E2D5'
+sky = '#89DCEB'
+sapphire = '#74C7EC'
+blue = '#89B4FA'
+lavender = '#B4BEFE'
+text = '#CDD6F4'
+subtext1 = '#BAC2DE'
+subtext0 = '#A6ADC8'
+overlay2 = '#9399B2'
+overlay1 = '#7F849C'
+overlay0 = '#6C7086'
+surface2 = '#585B70'
+surface1 = '#45475A'
+surface0 = '#313244'
+base = '#1E1E2E'
+mantle = '#181825'
+crust = '#11111B'
 
 [palettes.gruvbox_dark]
 aqua = "#689d6a"
@@ -52,8 +81,8 @@ white = "#a9b1d6"
 yellow = "#e0af68"
 
 [directory]
-format = "[ $path]($style)"
-style = "fg:yellow bold"
+format = "[$path]($style)"
+style = "fg:pink bold"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -62,16 +91,24 @@ truncation_symbol = "…/"
 
 [git_branch]
 format = "[ $symbol $branch]($style)"
-style = "fg:aqua bold"
+style = "fg:lavender"
 symbol = ""
+only_attached = true
 
 [git_commit]
-format = "[( $hash$tag)]($style)"
-style = "fg:green bold"
+format = "[  $hash $tag]($style)"
+style = "fg:lavender"
+tag_symbol = " "
+tag_disabled = false
+tag_max_candidates = 1
 
 [git_status]
 format = "[( $all_status$ahead_behind)]($style)"
 style = "fg:red bold"
+cherry_pick = ' '
+merge = ' '
+rebase = ' '
+revert = ' '
 
 [c]
 format = "[ $symbol( $version)]($style)"
@@ -80,14 +117,14 @@ symbol = " "
 
 [cmd_duration]
 format = "[  $duration]($style)"
-style = "bold fg:orange"
+style = "fg:orange bold"
 min_time = 10_000
 show_notifications = false
 min_time_to_notify = 60_000
 
 [golang]
 format = "[ $symbol( $version)]($style)"
-style = "fg:cyan"
+style = "fg:teal"
 symbol = ""
 
 [helm]
@@ -108,10 +145,22 @@ symbol = ""
 
 [rust]
 format = "[ $symbol( $version)]($style)"
-style = "fg:orange"
+style = "fg:peach"
 symbol = ""
 
 [lua]
 format = "[ $symbol( $version)]($style)"
-style = "fg:blue"
+style = "fg:sapphire"
 symbol = "󰢱"
+
+[zig]
+format = "[ $symbol( $version)]($style)"
+style = "fg:yellow"
+symbol = ""
+
+[custom.jj]
+# command = "prompt"
+command = "starship-jj --ignore-working-copy starship prompt"
+format = "[ $symbol](blue)$output"
+symbol = "󱗆 "
+when = "jj root --ignore-working-copy"
