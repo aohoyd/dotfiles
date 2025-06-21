@@ -56,7 +56,7 @@ status is-interactive; and begin
         "--scrollbar=\"│\""
     set -x FZF_FIND_FILE_OPTS \
         "--preview \"bat -n --color=always {}\""
-    set -x fifc_custom_fzf_opts "+e" "--height=30%" "--preview-window=right,75%"
+    set -gx fifc_custom_fzf_opts "+e" "--height=30%" "--preview-window=right,75%"
 
     fish_add_path /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/coreutils/libexec/gnubin ~/go/bin ~/.krew/bin
 
