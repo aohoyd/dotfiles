@@ -7,6 +7,9 @@ status is-login; and begin
 end
 
 status is-interactive; and begin
+    # Shortcuts
+    bind alt-z __zoxide_zi
+
     # Abbreviations
     abbr --add -- 9 k9s
     abbr --add -- b br
@@ -23,10 +26,13 @@ status is-interactive; and begin
     abbr --add -- gi gitui
     abbr --add -- ldo lazydocker
     abbr --add -- lgi lazygit
+    abbr --add -- ljj lazyjj
+    abbr --add -- ju jjui
     abbr --add -- v zed
     abbr --add -- watch viddy
 
     # Aliases
+    # alias cat 'bat --theme='\''Monokai Extended'\'' --paging=never --style=changes,rule,header,snip'
     alias cat 'bat --theme='\''Monokai Extended'\'' --paging=never'
     alias ls 'eza --group-directories-first'
 
@@ -40,6 +46,8 @@ status is-interactive; and begin
     set -x BAT_STYLE changes,rule,header,snip
     set -x PAGER "ov -F"
     set -x TAILSPIN_PAGER "ov -f [FILE]"
+    set -x NU_CONFIG_DIR ~/.config/nushell
+    set -x XDG_CONFIG_HOME ~/.config
 
     set -x FZF_DEFAULT_OPTS \
         "--bind=tab:down,shift-tab:up,right:toggle+down,left:toggle+up" \
@@ -53,24 +61,27 @@ status is-interactive; and begin
         "--marker=\" >\"" \
         "--pointer=\"◆\"" \
         "--separator=\"\"" \
-        "--scrollbar=\"│\""
+        "--scrollbar=\"│\"" \
+        "--height=30%" \
+        "--min-height=12" \
+        --no-sort \
+        --cycle
+    set -x _ZO_FZF_OPTS \
+        $FZF_DEFAULT_OPTS \
+        --keep-right \
+        "--preview=\"eza --color=always --group-directories-first {2..}\"" \
+        "--preview-window=down,30%,sharp"
     set -x FZF_FIND_FILE_OPTS \
         "--preview \"bat -n --color=always {}\""
-    set -gx fifc_custom_fzf_opts "+e" "--height=30%" "--preview-window=right,75%"
+    set -gx fifc_custom_fzf_opts "--height=30%" "--preview-window=right,75%"
+
+    set -x DOCKER_DEFAULT_PLATFORM linux/amd64
+    set -x BUILDX_EXPERIMENTAL 1
 
     fish_add_path /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/coreutils/libexec/gnubin ~/go/bin ~/.krew/bin
 
-    # run starship
-    # function starship_transient_prompt_func
-    #     starship module character
-    # end
-    # /opt/homebrew/bin/starship init fish | source
-    # enable_transience
     /opt/homebrew/bin/oh-my-posh init fish --config ~/.config/omp.toml | source
-
-    function rerender_on_dir_change --on-variable PWD
-        omp_repaint_prompt
-    end
+    /opt/homebrew/bin/atuin init fish --disable-up-arrow | source
 
     function __term_setup --on-event fish_prompt -d "Setup term integration"
         functions -e __term_setup

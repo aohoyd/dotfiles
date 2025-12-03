@@ -1,0 +1,16 @@
+[[regexes]]
+regex = 'error|ERROR'
+style = { fg = "red", bold = true, underline = true }
+
+[[regexes]]
+regex = 'debug|DEBUG'
+style = { fg = "yellow", bold = true, underline = true }
+
+[[regexes]]
+regex = 'info|INFO'
+style = { fg = "blue", bold = true, underline = true }
+
+[[regexes]]
+regex = 'msg\.[a-zA-Z0-9_.-]+='
+style = { fg = "bright_black" }
+

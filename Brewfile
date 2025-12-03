@@ -1,80 +1,162 @@
-# Shell Environments and Customization
+tap "blackmann/brew"
+tap "boz/repo"
+tap "felixkratz/formulae"
+tap "go-task/tap"
+tap "grdl/tap"
+tap "homebrew/bundle"
+tap "jandedobbeleer/oh-my-posh"
+tap "kdash-rs/kdash"
+tap "ktr0731/evans"
+tap "metalbear-co/mirrord"
+tap "nikitabobko/tap"
+tap "noborus/tap"
+tap "sergiobenitez/osxct"
+brew "openssl@3"
+brew "ansible"
+brew "ansible-lint"
+brew "asciidoctor"
+brew "atuin"
 brew "bash"
-brew "fish"          # User-friendly command line shell
-brew "fisher"        # Plugin manager for Fish shell
-brew "starship"      # Cross-shell prompt
-brew "nushell"       # Modern shell written in Rust
-brew "oh-my-posh"
-
-# Text Editors and IDE Tools
-brew "neovim"        # Modern vim text editor
-brew "helix"         # Modern text editor
-brew "ripgrep"       # Fast search tool for code
-
-# File Management and Navigation
-brew "yazi"          # Terminal file manager
-brew "broot"         # Terminal file manager
-brew "eza"           # Modern replacement for ls
-brew "bat"           # Cat clone with syntax highlighting
-
-# Data Processing and Formatting
-brew "jq"            # JSON processor
-brew "yq"            # YAML processor
-brew "fx"            # JSON viewer and processor
-brew "choose"        # Alternative to cut/awk
-brew "hck"           # Drop-in replacement for cut
+brew "bat"
+brew "binaryen"
+brew "broot"
+brew "btop"
+brew "caddy"
+brew "carapace"
+brew "cfssl"
+brew "chezmoi"
+brew "choose"
+brew "clang-format"
+brew "cmake"
+brew "colima"
+brew "coreutils"
+brew "ctop"
+brew "curl"
+brew "kubernetes-cli"
+brew "devspace"
+brew "difftastic"
+brew "dive"
+brew "docker"
+brew "docker-credential-helper"
+brew "dos2unix"
+brew "duf"
+brew "dust"
+brew "eza"
 brew "fd"
-
-# HTTP and Network Tools
-brew "curl"          # Command line tool for transferring data
-brew "xh"            # Friendly HTTP client
-
-# System Monitoring and Observation
-brew "viddy"         # Modern watch command
-brew "tailspin"      # Log file highlighter and viewer
-brew "btop"          # System resource monitor
-
-# Development Tools
-brew "mise"          # Development environment manager
-brew "gettext"       # Internationalization and localization
-
-tap "FelixKratz/formulae"
-brew "borders"  # Window management tool
-
-# Archive Management
-brew "ouch"          # Painless compression/decompression
-
-# Documentation and Help
-brew "tldr"          # Simplified man pages
-
-# Git and Version Control
-brew "git"           # Version control system
-brew "delta"         # Syntax-highlighting pager for git
-brew "difftastic"    # Structural diff tool
-brew "git-get"       # Git repository manager
-brew "git-lfs"       # Git extension for large files
-brew "glab"          # GitLab CLI tool
-brew "gh"            # GitHub CLI tool
-brew "lazygit"       # Simple terminal UI for git
+brew "fish"
+brew "fisher"
+brew "fx"
+brew "fzf"
+brew "gcc"
+brew "gh"
+brew "git"
+brew "git-delta"
+brew "git-lfs"
+brew "glab"
+brew "glib"
+brew "gnu-sed"
+brew "unbound"
+brew "gnupg"
+brew "go"
+brew "go-task"
+brew "hck"
+brew "helix", args: ["HEAD"]
+brew "helm"
+brew "helm-ls"
+brew "hidapi"
+brew "hl"
+brew "imagemagick"
+brew "jj"
+brew "jjui"
+brew "jq"
+brew "k9s"
+brew "kind"
+brew "krew"
+brew "kube-linter"
+brew "kustomize"
+brew "lazydocker"
+brew "lazygit"
+brew "lazyjj"
+brew "lnav"
+brew "make"
 brew "mergiraf"
-brew "smimesign"
-
-# Programming Languages and SDKs
-brew "go"            # Go programming language
-brew "rustup"        # Rust toolchain installer
-brew "python@3.12"   # Python programming language
-
-# Container and Kubernetes Tools
-brew "docker"                     # Docker CLI client
-brew "docker-credential-helper"   # Docker credential helpers
+brew "mise"
+brew "moor"
+brew "msmtp"
+brew "mutt"
+brew "nelm"
+brew "neovim"
+brew "nmap"
+brew "nushell"
+brew "ouch"
+brew "oxker"
+brew "pinentry-mac"
+brew "python@3.12"
+brew "resvg"
+brew "ripgrep"
+brew "rustup"
+brew "sha3sum"
+brew "shellcheck"
 brew "skopeo"
-brew "kind"                       # Kubernetes in Docker
-brew "kubectl"                    # Kubernetes command-line tool
-#brew "minikube"                   # Local Kubernetes cluster
-brew "helm"                       # Kubernetes package manager
-brew "helm-ls"                    # Helm language server
-brew "kustomize"                  # Kubernetes configuration tool
-brew "krew"                       # kubectl plugin manager
-brew "kube-linter"                # Kubernetes YAML linter
-brew "k9s"                        # Kubernetes CLI tool
-
+brew "smimesign"
+brew "starship"
+brew "stern"
+brew "swaks"
+brew "swiftlint"
+brew "syft"
+brew "tailspin"
+brew "television"
+brew "tig"
+brew "tldr"
+brew "trippy"
+brew "uv"
+brew "viddy"
+brew "watchexec"
+brew "werf"
+brew "wireshark"
+brew "xh"
+brew "yazi"
+brew "yq"
+brew "zig"
+brew "zoxide"
+brew "boz/repo/kail"
+brew "felixkratz/formulae/borders"
+brew "grdl/tap/git-get"
+brew "jandedobbeleer/oh-my-posh/oh-my-posh"
+brew "kdash-rs/kdash/kdash"
+brew "ktr0731/evans/evans"
+brew "metalbear-co/mirrord/mirrord"
+brew "noborus/tap/ov"
+brew "sergiobenitez/osxct/x86_64-unknown-linux-gnu"
+cask "aerospace"
+cask "bruno"
+cask "claude-code"
+cask "codex"
+cask "ghostty@tip"
+cask "gimp"
+cask "inkscape"
+cask "jet-pilot"
+cask "kitty@nightly"
+cask "qmk-toolbox"
+cask "raycast"
+cask "wezterm@nightly"
+go "github.com/google/go-containerregistry/cmd/crane"
+go "github.com/KyleBanks/depth/cmd/depth"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/easyp-tech/easyp/cmd/easyp"
+go "github.com/alovn/godepgraph"
+go "github.com/quasilyte/gogrep/cmd/gogrep"
+go "golang.org/x/tools/cmd/goimports"
+go "github.com/golangci/golangci-lint/cmd/golangci-lint"
+go "golang.org/x/tools/gopls"
+go "golang.org/x/vuln/cmd/govulncheck"
+go "github.com/Zxilly/go-size-analyzer/cmd/gsa"
+go "github.com/matryer/moq"
+go "github.com/deepmap/oapi-codegen/v2/cmd/oapi-codegen"
+go "github.com/lasorda/protobuf-language-server"
+# go "google.golang.org/protobuf/cmd/protoc-gen-go"
+# go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+# go "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway"
+# go "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"
+go "github.com/quasilyte/go-ruleguard/cmd/ruleguard"
+go "honnef.co/go/tools/cmd/staticcheck"

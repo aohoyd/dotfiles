@@ -141,6 +141,13 @@ ctrl-alt-4 = 'move-node-to-workspace 4'
 ctrl-alt-5 = 'move-node-to-workspace 5'
 ctrl-alt-6 = 'move-node-to-workspace 6'
 
+ctrl-shift-alt-1 = '''exec-and-forget ws=1; export aid aname; IFS=$'\t' read -r aid aname <<<"$(aerospace list-windows --focused --json | jq -r '.[0] | [.["window-id"], .["app-name"]] | @tsv')"; aerospace list-windows --all --json | jq -r '.[] | select(.["app-name"] == env.aname) | .["window-id"]' | xargs -n1 -I{} aerospace move-node-to-workspace --window-id {} $ws; aerospace focus --window-id $aid '''
+ctrl-shift-alt-2 = '''exec-and-forget ws=2; export aid aname; IFS=$'\t' read -r aid aname <<<"$(aerospace list-windows --focused --json | jq -r '.[0] | [.["window-id"], .["app-name"]] | @tsv')"; aerospace list-windows --all --json | jq -r '.[] | select(.["app-name"] == env.aname) | .["window-id"]' | xargs -n1 -I{} aerospace move-node-to-workspace --window-id {} $ws; aerospace focus --window-id $aid '''
+ctrl-shift-alt-3 = '''exec-and-forget ws=3; export aid aname; IFS=$'\t' read -r aid aname <<<"$(aerospace list-windows --focused --json | jq -r '.[0] | [.["window-id"], .["app-name"]] | @tsv')"; aerospace list-windows --all --json | jq -r '.[] | select(.["app-name"] == env.aname) | .["window-id"]' | xargs -n1 -I{} aerospace move-node-to-workspace --window-id {} $ws; aerospace focus --window-id $aid '''
+ctrl-shift-alt-4 = '''exec-and-forget ws=4; export aid aname; IFS=$'\t' read -r aid aname <<<"$(aerospace list-windows --focused --json | jq -r '.[0] | [.["window-id"], .["app-name"]] | @tsv')"; aerospace list-windows --all --json | jq -r '.[] | select(.["app-name"] == env.aname) | .["window-id"]' | xargs -n1 -I{} aerospace move-node-to-workspace --window-id {} $ws; aerospace focus --window-id $aid '''
+ctrl-shift-alt-5 = '''exec-and-forget ws=5; export aid aname; IFS=$'\t' read -r aid aname <<<"$(aerospace list-windows --focused --json | jq -r '.[0] | [.["window-id"], .["app-name"]] | @tsv')"; aerospace list-windows --all --json | jq -r '.[] | select(.["app-name"] == env.aname) | .["window-id"]' | xargs -n1 -I{} aerospace move-node-to-workspace --window-id {} $ws; aerospace focus --window-id $aid '''
+ctrl-shift-alt-6 = '''exec-and-forget ws=6; export aid aname; IFS=$'\t' read -r aid aname <<<"$(aerospace list-windows --focused --json | jq -r '.[0] | [.["window-id"], .["app-name"]] | @tsv')"; aerospace list-windows --all --json | jq -r '.[] | select(.["app-name"] == env.aname) | .["window-id"]' | xargs -n1 -I{} aerospace move-node-to-workspace --window-id {} $ws; aerospace focus --window-id $aid '''
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -166,12 +173,24 @@ if.app-name-regex-substring = 'Zed-Preview'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'Code'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
 if.app-name-regex-substring = '^wezterm$'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'wezterm-gui'
 # if.window-title-regex-substring = '_scratch'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.window-title-regex-substring = '^Zed . Settings$'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.window-title-regex-substring = '^Orion Preview - .*'
 run = ['layout floating']
 
 [[on-window-detected]]

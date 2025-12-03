@@ -6,7 +6,8 @@ local action_callback = wezterm.action_callback
 
 local config = wezterm.config_builder()
 
-local theme = "Kanagawa (Gogh)"
+local theme = "Ayu Dark (Gogh)"
+-- local theme = "Kanagawa (Gogh)"
 -- local theme = "Cloud (terminal.sexy)"
 -- local theme = "Hybrid (terminal.sexy)"
 
@@ -39,8 +40,8 @@ tabline.setup({
 	options = {
 		theme = theme,
 		section_separators = {
-			left = wezterm.nerdfonts.ple_lower_left_triangle,
-			right = wezterm.nerdfonts.ple_lower_right_triangle,
+			left =  wezterm.nerdfonts.ple_right_half_circle_thick,
+			right = wezterm.nerdfonts.ple_left_half_circle_thick,
 		},
 		component_separators = {
 			left = wezterm.nerdfonts.pl_left_soft_divider,
