@@ -111,9 +111,9 @@
       "LSFT(KC_MINS)",
       "KC_BSLS",
       "KC_LBRC",
-      "LSFT(KC_PDOT)",
-      "KC_PDOT",
       "KC_RBRC",
+      "KC_TRNS",
+      "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -171,9 +171,9 @@
       "LSFT(KC_MINS)",
       "KC_BSLS",
       "KC_LBRC",
-      "LSFT(KC_PDOT)",
-      "KC_PDOT",
       "KC_RBRC",
+      "KC_TRNS",
+      "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -246,5 +246,6 @@
       "KC_TRNS",
       "KC_TRNS"
     ]
-  ]
+  ],
+  "author": ""
 }

@@ -1,0 +1,3 @@
+[language-server.gopls]
+command = "gopls"
+args = ["-logfile=/tmp/gopls.log",  "-rpc.trace", "-vv", "serve"]

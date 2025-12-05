@@ -1,0 +1,64 @@
+[[mgr.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart filter"
+
+[[mgr.prepend_keymap]]
+on   = "e"
+run  = "open"
+desc = "Open selected"
+
+[[mgr.prepend_keymap]]
+on   = "<Enter>"
+run  = "plugin --sync smart-enter"
+desc = "Enter selected"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "a" ]
+run = "plugin yamb 'save'"
+desc = "Add bookmark"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "b" ]
+run = "plugin yamb 'jump_by_key'"
+desc = "Jump bookmark by key"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "G" ]
+run = "plugin yamb 'jump_by_fzf'"
+desc = "Jump bookmark by fzf"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "d" ]
+run = "plugin yamb 'delete_by_key'"
+desc = "Delete bookmark by key"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "D" ]
+run = "plugin yamb 'delete_by_fzf'"
+desc = "Delete bookmark by fzf"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "A" ]
+run = "plugin yamb 'delete_all'"
+desc = "Delete all bookmarks"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "r" ]
+run = "plugin yamb 'rename_by_key'"
+desc = "Rename bookmark by key"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "R" ]
+run = "plugin yamb 'rename_by_fzf'"
+desc = "Rename bookmark by fzf"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Chmod on selected files"
+
+[[mgr.prepend_keymap]]
+on = [ "z" ]
+run = "plugin fzf-custom"
+desc = "Patched fzf plugin"

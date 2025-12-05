@@ -1,0 +1,77 @@
+module_separator = " "
+
+[bookmarks]
+search_depth = 5
+exclude = []
+
+[[module]]
+type = "Change"
+color = {TrueColor = {r=0x89, g=0xb4, b=0xfa}}
+max_length = 24
+
+[[module]]
+type = "Bookmarks"
+separator = " "
+color = {TrueColor = {r=0x89, g=0xb4, b=0xfa}}
+symbol = ""
+behind_symbol = "⇡"
+max_bookmarks = 1
+
+# [[module]]
+# type = "State"
+# separator = " "
+
+# [module.conflict]
+# disabled = false
+# text = "(CONFLICT)"
+# color = "Red"
+
+# [module.divergent]
+# disabled = false
+# text = "(DIVERGENT)"
+# color = "Cyan"
+
+# [module.empty]
+# disabled = false
+# text = "(EMPTY)"
+# color = "Yellow"
+
+# [module.immutable]
+# disabled = false
+# text = "(IMMUTABLE)"
+# color = "Yellow"
+
+# [module.hidden]
+# disabled = false
+# text = "(HIDDEN)"
+# color = "Yellow"
+
+[[module]]
+type = "Metrics"
+template = "{files_stat}"
+color = "Magenta"
+
+[module.modified_files]
+prefix = "~"
+suffix = ""
+skip_empty = true
+color = {TrueColor = {r=0xf3, g=0x8b, b=0xa8}}
+# color = "Red"
+bold = true
+
+[module.added_files]
+prefix = "+"
+suffix = ""
+skip_empty = true
+color = {TrueColor = {r=0xf3, g=0x8b, b=0xa8}}
+# color = "Red"
+bold = true
+
+[module.removed_files]
+prefix = "-"
+suffix = ""
+skip_empty = true
+color = {TrueColor = {r=0xf3, g=0x8b, b=0xa8}}
+# color = "Red"
+bold = true
+
